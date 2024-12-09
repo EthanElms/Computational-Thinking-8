@@ -30,4 +30,4 @@ TB = codesters.Rectangle(0, 220, 100, 35, "black")
 Text = codesters.Text("Ethan", 0, 220, "white")
 
 TB = codesters.Rectangle(0, -220, 100, 35, "black")
-Text = codesters.Text("Ethan", 0, -220, "white")
+Text = codesters.Text("Bottom Text", 0, -220, "white")
