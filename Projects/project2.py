@@ -12,7 +12,7 @@ Answer = Answer.lower()
 if (Answer == "a"):
     Score[0] += 1
     #records answer in array depending on question
-elif (Answer != "b" or Answer != "c"):
+elif (Answer != "b" and Answer != "c"):
     #invalid answer marked as wrong
     print("Invalid Answer marked as incorrect")
     
@@ -22,7 +22,7 @@ Answer = Answer.lower()
 
 if (Answer == "c"):
     Score[1] += 1
-elif (Answer != "a" or Answer != "b"):
+elif (Answer != "a" and Answer != "b"):
     print("Invalid Answer marked as incorrect")
 
 
@@ -31,7 +31,7 @@ Answer = Answer.lower()
 
 if (Answer == "a"):
     Score[2] += 1
-elif (Answer != "b" or Answer != "c"):
+elif (Answer != "b" and Answer != "c"):
     print("Invalid Answer marked as incorrect")
 
 Answer = input("Most effective place to do a prograde burn \nA) Midpoint \nB) apoapsis \nC) Periapsis\n")
@@ -39,23 +39,29 @@ Answer = Answer.lower()
 
 if (Answer == "c"):
     Score[3] += 1
-elif (Answer != "b" or Answer != "a"):
+elif (Answer != "b" and Answer != "a"):
     print("Invalid Answer marked as incorrect")
 
 
-Answer = input("Roughly how many stars are there in the galaxy \nA) 100 Million \nB) Current velocity \nC) Mass\n")
+Answer = input("Roughly how many stars are there in our galaxy \nA) 100 Million \nB) 100 Billion \nC) 100 thousand\n")
 Answer = Answer.lower()
 
 if (Answer == "b"):
     Score[4] += 1
-elif (Answer != "a" or Answer != "c"):
+elif (Answer != "a" and Answer != "c"):
     print("Invalid Answer marked as incorrect")
 
 #end
 print("results: \n")
+CorrectAnswers = 0
 #prints array
 for x in Score:
+    CorrectAnswers += x
     if (x == 1):
         print("Correct")
     else:
         print("Incorrect")
+if (CorrectAnswers > 4):
+    print(f'Your score is {CorrectAnswers}/5 you are a space nerd')
+else:
+    print(f'Your score is {CorrectAnswers}/5 you are not a space nerd')
