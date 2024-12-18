@@ -1,16 +1,19 @@
 #begining
-
+#array stores score
 Score = [0,0,0,0,0]
 
 print("this is a test to determine how much you know about space\n")
 
 #Middle
 Answer = input("what is prograde \nA) direction of current orbit \nB) Opposite direction of current orbit \nC) Down Relative to nearest gravity \n")
+#makes it lower case
 Answer = Answer.lower()
 
 if (Answer == "a"):
     Score[0] += 1
+    #records answer in array depending on question
 elif (Answer != "b" or Answer != "c"):
+    #invalid answer marked as wrong
     print("Invalid Answer marked as incorrect")
     
 
@@ -50,6 +53,7 @@ elif (Answer != "a" or Answer != "c"):
 
 #end
 print("results: \n")
+#prints array
 for x in Score:
     if (x == 1):
         print("Correct")
