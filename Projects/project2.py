@@ -2,12 +2,12 @@
 #list stores score
 Score = [0,0,0,0,0]
 
-print("this is a test to determine how much you know about space\n")
+print("this is a test to determine how much you know about space\n")    
 
 #Middle
 Answer = input("what is prograde \nA) direction of current orbit \nB) Opposite direction of current orbit \nC) Down Relative to nearest gravity \n")
-#makes it lower case
-Answer = Answer.lower()
+#makes it lower case and removes trailing and leading whitespace
+Answer = Answer.lower().strip()
 
 if (Answer == "a"):
     Score[0] += 1
@@ -18,7 +18,7 @@ elif (Answer != "b" and Answer != "c"):
     
 
 Answer = input("How many planets are there in the solar system \nA) 5 \nB) 9 \nC) 8")
-Answer = Answer.lower()
+Answer = Answer.lower().strip()
 
 if (Answer == "c"):
     Score[1] += 1
@@ -27,7 +27,7 @@ elif (Answer != "a" and Answer != "b"):
 
 
 Answer = input("What is DeltaV \nA) Change in velocity \nB) Current velocity \nC) Mass\n")
-Answer = Answer.lower()
+Answer = Answer.lower().strip()
 
 if (Answer == "a"):
     Score[2] += 1
@@ -35,7 +35,7 @@ elif (Answer != "b" and Answer != "c"):
     print("Invalid Answer marked as incorrect")
 
 Answer = input("Most effective place to do a prograde burn \nA) Midpoint \nB) apoapsis \nC) Periapsis\n")
-Answer = Answer.lower()
+Answer = Answer.lower().strip()
 
 if (Answer == "c"):
     Score[3] += 1
@@ -44,7 +44,7 @@ elif (Answer != "b" and Answer != "a"):
 
 
 Answer = input("Roughly how many stars are there in our galaxy \nA) 100 Million \nB) 100 Billion \nC) 100 thousand\n")
-Answer = Answer.lower()
+Answer = Answer.lower().strip()
 
 if (Answer == "b"):
     Score[4] += 1
