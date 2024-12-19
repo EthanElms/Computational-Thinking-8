@@ -1,5 +1,5 @@
 #begining
-#array stores score
+#list stores score
 Score = [0,0,0,0,0]
 
 print("this is a test to determine how much you know about space\n")
@@ -56,11 +56,14 @@ print("results: \n")
 CorrectAnswers = 0
 #prints array
 for x in Score:
+    #adds up the whole list
     CorrectAnswers += x
     if (x == 1):
         print("Correct")
     else:
         print("Incorrect")
+#endings \/
+#uses string interpolation to say answer
 if (CorrectAnswers > 4):
     print(f'Your score is {CorrectAnswers}/5 you are a space nerd')
 else:
