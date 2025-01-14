@@ -12,19 +12,16 @@ class tsetup:
         t = turtle.Turtle()
         t.speed(0)
         t.penup()
-        t.goto(0, -200)
+        t.goto(0, -175)
         t.color(color)
         t.pendown()
-        if (lr==0):
-            t.left(100)
-        else:
-            t.right(100)
         for x in range(10):
             t.setheading(90)
-            #t.right(10*x)
 
             if (lr==0):
                 t.left(10*x)
+            elif(lr==2):
+                t.right(10*(x+10))
             else:
                 t.right(10*x)
 
@@ -42,7 +39,7 @@ class tsetup:
                     t2.hideturtle()
                 
 #screen color
-#turtle.Screen().bgcolor("white")
+turtle.Screen().bgcolor("black")
 
 
 #drawing
