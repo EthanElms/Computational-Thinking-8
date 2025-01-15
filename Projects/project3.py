@@ -1,18 +1,19 @@
 import turtle
-import random
+import threading
+
 
 #t1 setup
 t = 0
 
 class tsetup:
     # I hate python classes are so scuffed and the construct litterly take the class as an augment never seen any other language do this smh :(
-    # I used a class for fun its not optimal
+    # I used a class for fun its not optimal I was going to add a bit more so using clases would do something but ran out of time
     def __init__(self,color,lr):
         #setup
         t = turtle.Turtle()
         t.speed(0)
         t.penup()
-        t.goto(0, -175)
+        t.goto(0, -150)
         t.color(color)
         t.pendown()
         for x in range(10):
