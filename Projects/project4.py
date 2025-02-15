@@ -16,9 +16,9 @@ player.set_size(0.05)
 # objectlist = []
 
 #object
-objectSpeed = random.randint(3,5)
+objectSpeed = random.randint(2,4)
 def changespeed():
-    objectSpeed = random.randint(3,5)
+    objectSpeed = random.randint(2,4)
 stage.event_interval(changespeed , 2)
 
 AsteroidList = ["a1","a2","a3"]
@@ -36,7 +36,7 @@ def FallingObject():
         print(asteroidLeft)
     if (asteroidLeft == 0):
         if(health > 0):
-            player.say(f"you dodged {15-(3-health)} asteroids")
+            player.say(f"you dodged {15-(4-health)} asteroids")
         else:
             player.say("you died")
         
@@ -57,15 +57,20 @@ def collision(player, object):
     global health
     if (object.get_image_name() == "a1" or object.get_image_name() == "a2" or object.get_image_name() == "a3"):
         stage.remove_sprite(object)
-        health -= 1
+        if (health != 0):  
+            health -= 1
+        if (health == 0):
+            destroy()
+            player = codesters.Sprite("explosion",-180, 0)
         print(health) 
         print("collision")
         if (health == 0):
             player.say("ship destroyed",5)
             print("destroyed")
+
         else:
             player.say(f"{health} health", 2)
-health = 3
+health = 4
 player.event_collision(collision)
 
 
@@ -73,12 +78,17 @@ player.event_collision(collision)
 def MoveUp():
     if(player.get_y() > 230):
         player.set_y(230)
-    player.move_up(5)
+    if(health != 0):
+        player.move_up(5)
 
 def MoveDown():
     if(player.get_y() < -230):
         player.set_y(-230)
-    player.move_down(5)
+    if(health != 0):
+        player.move_down(5)
+
+def destroy():
+    player.goto(-120,0)
 
 #controls
 player.event_key("w",MoveUp)
