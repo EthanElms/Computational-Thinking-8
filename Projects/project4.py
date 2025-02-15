@@ -2,6 +2,7 @@
 import codesters
 import random
 from codesters import StageClass
+
 stage = StageClass()
 stage.disable_left_wall()
 stage.set_background("space2")
@@ -24,7 +25,7 @@ AsteroidList = ["a1","a2","a3"]
 
 def FallingObject():
     global asteroidLeft
-    global object
+
     if (asteroidLeft !=0):
         object = codesters.Sprite(random.choice(AsteroidList),250,random.randint(-250,250))
         object.set_size(0.5)
@@ -33,6 +34,12 @@ def FallingObject():
         object.set_x_speed(-objectSpeed)
         asteroidLeft -= 1
         print(asteroidLeft)
+    if (asteroidLeft == 0):
+        if(health > 0):
+            player.say(f"you dodged {15-(3-health)} asteroids")
+        else:
+            player.say("you died")
+        
 asteroidLeft = 15
 
 stage.event_interval(FallingObject,3)
@@ -46,7 +53,7 @@ stage.event_interval(FallingObject,3)
 
 #Collision
 
-def collision(player):
+def collision(player, object):
     global health
     if (object.get_image_name() == "a1" or object.get_image_name() == "a2" or object.get_image_name() == "a3"):
         stage.remove_sprite(object)
@@ -55,10 +62,11 @@ def collision(player):
         print("collision")
         if (health == 0):
             player.say("ship destroyed",5)
+            print("destroyed")
         else:
             player.say(f"{health} health", 2)
-health = 4
-player.event_collision(collision(player))
+health = 3
+player.event_collision(collision)
 
 
 #movement functions
